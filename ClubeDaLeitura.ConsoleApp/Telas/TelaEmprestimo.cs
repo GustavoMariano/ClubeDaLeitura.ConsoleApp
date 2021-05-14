@@ -71,7 +71,8 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
 
         internal void RegistrarDevolucao()
         {
-            VisualizarRegistros();
+            Console.Clear();
+            MostrarEmprestimosAbertos();
 
             Console.WriteLine("Digite a id do emprestimo que deseja registrar devolução: ");
             int idSelecionado = Convert.ToInt32(Console.ReadLine());
@@ -96,15 +97,6 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
             }
         }
 
-        //internal void TelaMostraEmprestimos(out string opcao)
-        //{
-        //    Console.WriteLine("Digite 1 para exibir os emprestimos em aberto");
-        //    Console.WriteLine("Digite 2 para exibir os emprestimos do mês");
-        //    Console.WriteLine("Digite S para sair");
-
-        //    opcao = Console.ReadLine();
-        //}
-
         internal void MostrarEmprestimosAbertos()
         {
             Emprestimo[] emprestimo = controladorEmprestimo.SelecionarTodosEmprestimos();
@@ -116,9 +108,9 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
                 if (emprestimo[i].Status)
                     contador++;
             }
-            Console.WriteLine($"\n{contador} emprestimos ativos.\n");
+            Console.WriteLine($"\n{contador} emprestimos abertos.\n");
 
-            string configuracaColunasTabela = "{0,-5} | {1,-10} | {2,-10} | {3,-25} | {4,-25} | {5,-15}";
+            string configuracaColunasTabela = "{0,-5} | {1,-5} | {2,-15} | {3,-25} | {4,-25} | {5,-25}";
 
             MontarCabecalhoTabela(configuracaColunasTabela);
 
@@ -126,10 +118,16 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
             {
                 if (emprestimo[i].Status)
                     Console.WriteLine(configuracaColunasTabela,
-                       emprestimo[i].Id, emprestimo[i].Revista.Id, emprestimo[i].Amiguinho.Id, emprestimo[i].DataEmprestimo.ToString(),
+                       emprestimo[i].Id, emprestimo[i].Revista.Id, emprestimo[i].Amiguinho.Nome, emprestimo[i].DataEmprestimo.ToString(),
                        emprestimo[i].DataDevolucao.ToString(), emprestimo[i].Status);
             }
             Console.ReadLine();
+
+            if (contador == 0)
+            {
+                Console.WriteLine("Não existem emprestimos em aberto no momento");
+                Console.ReadLine();
+            }
         }
 
         public string ObterOpcoes()
@@ -165,12 +163,13 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
             if (count == 0)
             {
                 Console.WriteLine("O mês solicitado, não contém nenhum emprestimo registrado!");
+                Console.ReadLine();
                 return;
             }
 
             Console.WriteLine($"\nExistem {count} emprestimos neste mês.");
 
-            string configuracaColunasTabela = "{0,-5} | {1,-10} | {2,-10} | {3,-25} | {4,-25} | {5,-15}";
+            string configuracaColunasTabela = "{0,-5} | {1,-5} | {2,-15} | {3,-25} | {4,-25} | {5,-25}";
 
             MontarCabecalhoTabela(configuracaColunasTabela);
 
