@@ -68,6 +68,8 @@ namespace ClubeDaLeitura.ConsoleApp.Dominio
 
             if (string.IsNullOrEmpty(resultadoValidacao))
                 resultadoValidacao = "EMPRESTIMO_VALIDO";
+            else
+                resultadoValidacao += "Tente novamente!!";
 
             return resultadoValidacao;
         }

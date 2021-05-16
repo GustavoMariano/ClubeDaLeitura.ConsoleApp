@@ -34,7 +34,7 @@ namespace ClubeDaLeitura.ConsoleApp.Controladores
             if (resultadoValidacao == "CAIXA_VALIDA")
                 registros[posicao] = caixa;
 
-            return resultadoValidacao;
+            return resultadoValidacao; 
         }
 
         public bool ExcluirCaixa(int idSelecionado)

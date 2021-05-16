@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ClubeDaLeitura.ConsoleApp.Telas.TelaAmiguinho" Collapsed="true">
+    <Position X="12" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAEAAAAAAAAAAAAAAAAAICCAAAAAAAAAABABAAAA=</HashCode>
+      <FileName>Telas\TelaAmiguinho.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Telas.TelaBase" Collapsed="true">
+    <Position X="10.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAICAAAAAAAAAAABABAAAA=</HashCode>
+      <FileName>Telas\TelaBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Telas.TelaCaixa" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAICCAAAAAAAAAAJCBAAAA=</HashCode>
+      <FileName>Telas\TelaCaixa.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Telas.TelaEmprestimo" Collapsed="true">
+    <Position X="14.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAACAAAAAgECSAAAAAAAAAAAACUAI=</HashCode>
+      <FileName>Telas\TelaEmprestimo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Telas.TelaRevista" Collapsed="true">
+    <Position X="9.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAIGCAAAAAAAAAABCBABAA=</HashCode>
+      <FileName>Telas\TelaRevista.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Dominio.Amiguinho" Collapsed="true">
+    <Position X="17.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQACAEAAgAAAAIAAgAAAAAAAAAgAAQAIAAAAAAEAAgA=</HashCode>
+      <FileName>Dominio\Amiguinho.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Dominio.Caixa" Collapsed="true">
+    <Position X="19" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAhAAAAQQAAAEAAQAAAAEAAAABAgA=</HashCode>
+      <FileName>Dominio\Caixa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Dominio.Emprestimo" Collapsed="true">
+    <Position X="17.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAEAAEAAAABgABAAAAAQEAAAQBAAABAAAAAQgA=</HashCode>
+      <FileName>Dominio\Emprestimo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Dominio.Revista" Collapsed="true">
+    <Position X="19" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACACAAAAAAAAAAgACAAAAAgAIAAQACAAAAIAAAAiA=</HashCode>
+      <FileName>Dominio\Revista.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Dominio.GeradorId" Collapsed="true">
+    <Position X="17.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAEAAAAAAYACAAAAAEAEAAAAAAIAAAAAAA=</HashCode>
+      <FileName>GeradorId.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Program" Collapsed="true">
+    <Position X="19" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Controladores.ControladorAmiguinho" Collapsed="true">
+    <Position X="7.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAACAAIAAAAAAAAAAAAAAAEAAAAEAAAA=</HashCode>
+      <FileName>Controladores\ControladorAmiguinho.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Controladores.ControladorBase" Collapsed="true">
+    <Position X="10.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACFBAAAAAAAAoBAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Controladores\ControladorBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Controladores.ControladorCaixa" Collapsed="true">
+    <Position X="14" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAgAAgAAAAAQAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Controladores\ControladorCaixa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Controladores.ControladorEmprestimo" Collapsed="true">
+    <Position X="9.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQhAAAAAAAAAAAAAAAAAIAAAEAACAAAAAAAABAEAABA=</HashCode>
+      <FileName>Controladores\ControladorEmprestimo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Controladores.ControladorRevista" Collapsed="true">
+    <Position X="12" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAACEAQAA=</HashCode>
+      <FileName>Controladores\ControladorRevista.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

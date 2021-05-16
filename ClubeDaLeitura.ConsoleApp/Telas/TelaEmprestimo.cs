@@ -12,8 +12,8 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
         private ControladorRevista controladorRevista;
         private ControladorAmiguinho controladorAmiguinho;
 
-        public TelaEmprestimo(TelaRevista telaRevista, TelaAmiguinho telaAmiguinho, ControladorEmprestimo controladorEmprestimo,
-            ControladorRevista controladorRevista, ControladorAmiguinho controladorAmiguinho)
+        public TelaEmprestimo(string titulo,TelaRevista telaRevista, TelaAmiguinho telaAmiguinho, ControladorEmprestimo controladorEmprestimo,
+            ControladorRevista controladorRevista, ControladorAmiguinho controladorAmiguinho) : base(titulo)
         {
             this.telaRevista = telaRevista;
             this.telaAmiguinho = telaAmiguinho;
@@ -27,7 +27,8 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
             telaRevista.VisualizarRegistros();
 
             Console.WriteLine("Digite o número da Id da revista que deseja emprestar: ");
-            int idRevista = Convert.ToInt32(Console.ReadLine());
+            int idRevista;
+            Int32.TryParse(Console.ReadLine(), out idRevista);
 
             int idExitente = controladorRevista.VerificaId(idRevista);
 
@@ -46,7 +47,8 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
                 telaAmiguinho.VisualizarRegistros();
 
                 Console.WriteLine("Digite o número da Id do amiguinho que deseja efetuar emprestimo: ");
-                int idAmiguinho = Convert.ToInt32(Console.ReadLine());
+                int idAmiguinho;
+                Int32.TryParse(Console.ReadLine(), out idAmiguinho);
 
                 idExitente = controladorAmiguinho.VerificaId(idAmiguinho);
 
@@ -75,7 +77,8 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
             MostrarEmprestimosAbertos();
 
             Console.WriteLine("Digite a id do emprestimo que deseja registrar devolução: ");
-            int idSelecionado = Convert.ToInt32(Console.ReadLine());
+            int idSelecionado;
+            Int32.TryParse(Console.ReadLine(), out idSelecionado);
 
             int idExitente = controladorEmprestimo.VerificaId(idSelecionado);
 
@@ -92,6 +95,7 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
                 emprestimo = controladorEmprestimo.SelecionarEmprestimoPorId(idSelecionado);
 
                 emprestimo.Status = false;
+                emprestimo.DataDevolucao = DateTime.Now.ToLocalTime();
 
                 Console.WriteLine("Devolução registrada com sucesso!");
             }
@@ -150,7 +154,8 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
 
 
             Console.WriteLine("Digite o mês que deseja visualizar Ex.'01' : ");
-            int mes = Convert.ToInt32(Console.ReadLine());
+            int mes;
+            Int32.TryParse(Console.ReadLine(), out mes);
 
             int count = 0;
 
@@ -177,7 +182,7 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
             {
                 if (emprestimo[i].DataEmprestimo.Month == mes)
                     Console.WriteLine(configuracaColunasTabela, emprestimo[i].Id, emprestimo[i].Revista.Id, emprestimo[i].Amiguinho.Id,
-                        emprestimo[i].DataEmprestimo.ToString(), emprestimo[i].DataDevolucao.ToString(), emprestimo[i].Status);
+                  emprestimo[i].DataEmprestimo.ToString(), emprestimo[i].DataDevolucao.ToString(), emprestimo[i].Status);
             }
             Console.ReadLine();
         }

@@ -8,7 +8,7 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
     {
         private  ControladorAmiguinho controladorAmiguinho;
 
-        public TelaAmiguinho(ControladorAmiguinho controladorAmiguinho)
+        public TelaAmiguinho(string titulo, ControladorAmiguinho controladorAmiguinho) : base(titulo)
         {
             this.controladorAmiguinho = controladorAmiguinho;
         }
@@ -17,7 +17,15 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
         {
             Console.Clear();
 
-            GravarAmiguinho(0);
+            string resultadoValidacao = "a";
+
+            while (resultadoValidacao != "Amiguinho cadastrado com sucesso!!")
+            {
+                resultadoValidacao = (GravarAmiguinho(0));
+                Console.WriteLine(resultadoValidacao);
+                Console.ReadLine();
+                Console.Clear();
+            }            
         }
 
         public override void EditarRegistro()
@@ -28,8 +36,9 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
 
             Console.WriteLine();
 
+            int idSelecionado;
             Console.Write("Digite o número do amiguinho que deseja editar: ");
-            int idSelecionado = Convert.ToInt32(Console.ReadLine());
+            Int32.TryParse(Console.ReadLine(), out idSelecionado);
 
             int idExitente = controladorAmiguinho.VerificaId(idSelecionado);
 
@@ -51,7 +60,8 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
             Console.WriteLine();
 
             Console.Write("Digite o número do amiguinho que deseja excluir: ");
-            int idSelecionado = Convert.ToInt32(Console.ReadLine());
+            int idSelecionado;
+            Int32.TryParse(Console.ReadLine(), out idSelecionado);
 
             int idExitente = controladorAmiguinho.VerificaId(idSelecionado);
 
@@ -69,8 +79,7 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
                     Console.WriteLine("Registro excluído com sucesso");
                     Console.ReadLine();
                 }
-            }
-                
+            }                
         }
 
         public override void VisualizarRegistros()
@@ -97,11 +106,10 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
                 Console.WriteLine("Nenhum amiguihno cadastrado!");
                 Console.ResetColor();
             }
-
             Console.ReadLine();
         }
 
-        private void GravarAmiguinho(int id)
+        private string GravarAmiguinho(int id)
         {
             Console.WriteLine("Digite o nome do amiguinho: ");
             string nome = Console.ReadLine();
@@ -115,8 +123,11 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
             Console.WriteLine("Digite o nome do responsavel do amiguinho: ");
             string responsavel = Console.ReadLine();
 
-            controladorAmiguinho.RegistrarAmiguinho(id, nome, telefone, deOndeEh, responsavel);
-
+            string resultadoValidacao = controladorAmiguinho.RegistrarAmiguinho(id, nome, telefone, deOndeEh, responsavel);
+            if (resultadoValidacao == "AMIGUINHO_VALIDO")
+                return "Amiguinho cadastrado com sucesso!!";
+            else
+                return resultadoValidacao;
         }
 
 

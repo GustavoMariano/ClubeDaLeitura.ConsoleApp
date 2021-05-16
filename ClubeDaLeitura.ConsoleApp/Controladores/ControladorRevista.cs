@@ -12,7 +12,7 @@ namespace ClubeDaLeitura.ConsoleApp.Controladores
             this.controladorCaixa = controlador;
         }
 
-        public string RegistrarRevista(int id, int idCaixaSelecionada, string edicao, string colecao, DateTime ano)
+        public string RegistrarRevista(int id, int idCaixaSelecionada, string edicao, string colecao, int ano)
         {
             Revista revista;
             int posicao = 0;

@@ -49,14 +49,13 @@ namespace ClubeDaLeitura.ConsoleApp.Dominio
             if (string.IsNullOrEmpty(cor))
                 resultadoValidacao += "O campo cor é obrigatório \n";
 
-            if (numero == null)
-                resultadoValidacao += "O campo número é obrigatório \n";
-
             if (string.IsNullOrEmpty(etiqueta))
                 resultadoValidacao += "O campo etiqueta é obrigatório \n";
 
             if (string.IsNullOrEmpty(resultadoValidacao))
                 resultadoValidacao = "CAIXA_VALIDA";
+            else
+                resultadoValidacao += "Tente novamente!!";
 
             return resultadoValidacao;
         }

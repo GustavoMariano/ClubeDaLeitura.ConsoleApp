@@ -46,7 +46,7 @@ namespace ClubeDaLeitura.ConsoleApp.Dominio
         public Amiguinho()
         {
             id = GeradorId.GerarIdAmiguinho();
-        }
+        }        
 
         public string Validar()
         {
@@ -66,6 +66,8 @@ namespace ClubeDaLeitura.ConsoleApp.Dominio
 
             if (string.IsNullOrEmpty(resultadoValidacao))
                 resultadoValidacao = "AMIGUINHO_VALIDO";
+            else
+                resultadoValidacao += "Tente novamente!!";
 
             return resultadoValidacao;
         }

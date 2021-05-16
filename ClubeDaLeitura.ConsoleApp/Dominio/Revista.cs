@@ -7,7 +7,7 @@ namespace ClubeDaLeitura.ConsoleApp.Dominio
         private int id;
         private string edicao;
         private string colecao;
-        private DateTime ano;
+        private int ano;
         private Caixa caixa;
 
         public int Id
@@ -24,14 +24,12 @@ namespace ClubeDaLeitura.ConsoleApp.Dominio
             get { return this.colecao; }
             set { this.colecao = value; }
         }
-        public DateTime Ano
-
+        public int Ano
         {
             get { return this.ano; }
             set { this.ano = value; }
         }
         public Caixa Caixa
-
         {
             get { return this.caixa; }
             set { this.caixa = value; }
@@ -57,7 +55,7 @@ namespace ClubeDaLeitura.ConsoleApp.Dominio
             if (string.IsNullOrEmpty(colecao))
                 resultadoValidacao += "O campo Descricao é obrigatório \n";
 
-            if (ano > DateTime.Now)
+            if (ano > DateTime.Now.Year)
                 resultadoValidacao += "O campo ano não pode ser no futuro \n";
 
             if (caixa == null)
@@ -65,6 +63,8 @@ namespace ClubeDaLeitura.ConsoleApp.Dominio
 
             if (string.IsNullOrEmpty(resultadoValidacao))
                 resultadoValidacao = "REVISTA_VALIDA";
+            else
+                resultadoValidacao += "Tente novamente";
 
             return resultadoValidacao;
         }

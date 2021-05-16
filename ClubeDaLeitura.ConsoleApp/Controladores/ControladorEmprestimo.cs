@@ -69,9 +69,7 @@ namespace ClubeDaLeitura.ConsoleApp.Controladores
             for (int i = 0; i < emprestimo.Length; i++)
             {
                 if (emprestimo[i].Revista.Id == id && emprestimo[i].Status)
-                {
                     return true;
-                }
             }
             return false;
         }
@@ -83,9 +81,7 @@ namespace ClubeDaLeitura.ConsoleApp.Controladores
             for (int i = 0; i < emprestimo.Length; i++)
             {
                 if (emprestimo[i].Amiguinho.Id == id && emprestimo[i].Status)
-                {
                     return true;
-                }
             }
             return false;
         }
@@ -97,9 +93,7 @@ namespace ClubeDaLeitura.ConsoleApp.Controladores
             for (int i = 0; i < emprestimos.Length; i++)
             {
                 if (emprestimos[i].Id == idSelecionado)
-                {
                     quantidade = emprestimos[i].Id;
-                }
             }
             return quantidade;
         }

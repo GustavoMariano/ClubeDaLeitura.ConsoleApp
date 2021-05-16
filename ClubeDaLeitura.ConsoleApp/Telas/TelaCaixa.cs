@@ -8,7 +8,7 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
     {
         private ControladorCaixa controladorCaixa;
 
-        public TelaCaixa(ControladorCaixa controladorCaixa)
+        public TelaCaixa(string titulo, ControladorCaixa controladorCaixa) : base(titulo)
         {
             this.controladorCaixa = controladorCaixa;
         }
@@ -17,7 +17,15 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
         {
             Console.Clear();
 
-            GravarCaixa(0);
+            string resultadoValidacao = "a";
+
+            while (resultadoValidacao != "Caixa cadastrada com sucesso!!")
+            {
+                resultadoValidacao = (GravarCaixa(0));
+                Console.WriteLine(resultadoValidacao);
+                Console.ReadLine();
+                Console.Clear();
+            }
         }
 
         public override void VisualizarRegistros()
@@ -56,7 +64,8 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
             Console.WriteLine();
 
             Console.Write("Digite o número da caixa que deseja editar: ");
-            int idSelecionado = Convert.ToInt32(Console.ReadLine());
+            int idSelecionado;
+            Int32.TryParse(Console.ReadLine(), out idSelecionado);
 
             int idExitente = controladorCaixa.VerificaId(idSelecionado);
 
@@ -66,7 +75,20 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
                 Console.ReadLine();
             }
             else
-                GravarCaixa(idSelecionado);
+            {
+                string resultadoValidacao = "a";
+
+                resultadoValidacao = (GravarCaixa(idSelecionado));
+
+                if(resultadoValidacao == "Caixa cadastrada com sucesso!!")
+                {
+                    Console.WriteLine("Caixa editada com sucesso");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+                else
+                    Console.WriteLine(resultadoValidacao);                
+            }
         }
 
         public override void ExcluirRegistro()
@@ -78,7 +100,8 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
             Console.WriteLine();
 
             Console.Write("Digite o número da caixa que deseja excluir: ");
-            int idSelecionado = Convert.ToInt32(Console.ReadLine());
+            int idSelecionado;
+            Int32.TryParse(Console.ReadLine(), out idSelecionado);
 
             int idExitente = controladorCaixa.VerificaId(idSelecionado);
 
@@ -96,21 +119,34 @@ namespace ClubeDaLeitura.ConsoleApp.Telas
                     Console.WriteLine("Registro excluído com sucesso");
                     Console.ReadLine();
                 }
-            }                
+            }
         }
 
-        private void GravarCaixa(int id)
+        private string GravarCaixa(int id)
         {
+            string resultadoValidacao;
+
             Console.WriteLine("Digite a cor da caixa: ");
             string cor = Console.ReadLine();
 
             Console.WriteLine("Digite o numero da caixa: ");
-            int numero = Convert.ToInt32(Console.ReadLine());
+            int numero;
+            bool validaNumero = Int32.TryParse(Console.ReadLine(), out numero);
 
-            Console.WriteLine("Digite a etiqueta da caixa: ");
-            string etiqueta = Console.ReadLine();
+            if (validaNumero == false)
+                return resultadoValidacao = "O campo número não foi preenchido com um inteiro, tente novamente!!";
+            else
+            {
+                Console.WriteLine("Digite a etiqueta da caixa: ");
+                string etiqueta = Console.ReadLine();
 
-            controladorCaixa.RegistrarCaixa(id, cor, numero, etiqueta);
+                resultadoValidacao = controladorCaixa.RegistrarCaixa(id, cor, numero, etiqueta);
+
+                if (resultadoValidacao == "CAIXA_VALIDA")
+                    return "Caixa cadastrada com sucesso!!";
+                else
+                    return resultadoValidacao;
+            }
         }
 
         private static void MontarCabecalhoTabela(string configuracaoColunasTabela)

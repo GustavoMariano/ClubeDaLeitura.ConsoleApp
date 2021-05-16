@@ -7,28 +7,26 @@ namespace ClubeDaLeitura.ConsoleApp
     {
         static void Main(string[] args)
         {
-            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            TelaPrincipal telaPrincipal = new TelaPrincipal("Menu principal");
 
             Console.Clear();
 
             while (true)
             {
-
-                TelaBase telaSelecionada = (TelaBase)telaPrincipal.ObterOpcao();
+                TelaBase telaSelecionada = (TelaBase)telaPrincipal.ObterOpcao("Menu principal");
 
                 if (telaSelecionada == null)
-                    break;
+                    break;                
 
                 string opcao = "";
 
-                Console.Clear();
+                Console.Clear();                
 
                 if (telaSelecionada is ICadastravel)
                 {
-                    opcao = telaSelecionada.ObterOpcao();
+                    Console.WriteLine(((TelaBase)telaSelecionada).Titulo);
 
-                    if (opcao.Equals("s", StringComparison.OrdinalIgnoreCase))
-                        break;
+                    opcao = telaSelecionada.ObterOpcao();
 
                     switch (opcao)
                     {
@@ -41,8 +39,10 @@ namespace ClubeDaLeitura.ConsoleApp
                     }
                 }
                 else if (telaSelecionada is ICadastravel == false)
-                {
+                { 
                     TelaEmprestimo telaEmprestimo = (TelaEmprestimo)telaSelecionada;
+
+                    Console.WriteLine(((TelaBase)telaSelecionada).Titulo);
 
                     opcao = telaEmprestimo.ObterOpcoes();
 
